@@ -21,9 +21,9 @@ import os
 #建立 application物件
 app = Flask(__name__)
 #放入自己的LINEBOT-ChanelAccessToken
-line_bot_api = LineBotApi("os.getenv('CHANNEL_ACCESS_TOKEN"))
+line_bot_api = LineBotApi(os.getenv("CHANNEL_ACCESS_TOKEN"))
 #放入自己的LINEBOTChannelSecret
-handler = WebhookHandler("os.getenv('CHANNEL_SECRET"))
+handler = WebhookHandler(os.getenv("CHANNEL_SECRET"))
     
 #Webhook 入口
 @app. route("/callback",  methods=[ 'PosT'])
