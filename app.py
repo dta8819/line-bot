@@ -15,13 +15,15 @@ from linebot.models import (
 )
 #載入json模组(格式化輸出結果
 import json
+#載入os組(此於讀取環境)
+import os
 
 #建立 application物件
 app = Flask(__name__)
 #放入自己的LINEBOT-ChanelAccessToken
-line_bot_api = LineBotApi("NUat0qSQtjOtmTWx2jdl7pQQJN1T2xGbWZf4IJPy8zx5DjrIE+NLUDp2Z0a9LsERK2IFb3gmS5V5rJCUcFr0Li/jmRfYaomt5A5mtoxs2HnOe7C1Jy7da9lf0iOFsTOG9ozZvAqQeGbhkIQkBIoVmgdB04t89/1O/w1cDnyilFU=" )
+line_bot_api = LineBotApi("os.getenv('CHANNEL_ACCESS_TOKEN"))
 #放入自己的LINEBOTChannelSecret
-handler = WebhookHandler("24c7955d5517d55dc4de034f651f004d")
+handler = WebhookHandler("os.getenv('CHANNEL_SECRET"))
     
 #Webhook 入口
 @app. route("/callback",  methods=[ 'PosT'])
